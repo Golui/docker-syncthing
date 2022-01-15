@@ -22,6 +22,9 @@ param_hostname_desc: "Optionally the hostname can be defined."
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - { env_var: "GUI_PORT", env_value: "8384", desc: "Application WebUI Port" }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "/path/to/appdata/config", desc: "Configuration files." }
@@ -43,6 +46,7 @@ app_setup_nginx_reverse_proxy_block: ""
 # changelog
 
 changelogs:
+  - { date: "15.01.22:", desc: "Make GUI port customisable." }
   - { date: "05.10.21:", desc: "Rebase to alpine 3.14." }
   - { date: "12.05.21:", desc: "Remove sysctl parameter again" }
   - { date: "03.05.21:", desc: "Raise maximum UDP buffer size." }

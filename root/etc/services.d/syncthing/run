@@ -5,7 +5,11 @@ if [ -n "${UMASK_SET}" ] && [ -z "${UMASK}" ]; then
   umask ${UMASK_SET}
 fi
 
+if [ -z "${GUI_PORT}" ]; then
+	GUI_PORT=8384
+fi
+
 exec \
 	s6-setuidgid abc syncthing \
 	-home=/config -no-browser -no-restart \
-	--gui-address="0.0.0.0:8384"
+	--gui-address="0.0.0.0:${GUI_PORT}"

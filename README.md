@@ -80,6 +80,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
+      - GUI_PORT=8384 #optional
     volumes:
       - /path/to/appdata/config:/config
       - /path/to/data1:/data1
@@ -101,6 +102,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
+  -e GUI_PORT=8384 `#optional` \
   -p 8384:8384 \
   -p 22000:22000/tcp \
   -p 22000:22000/udp \
@@ -126,6 +128,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
+| `-e GUI_PORT=8384` | Application WebUI Port |
 | `-v /config` | Configuration files. |
 | `-v /data1` | Data1 |
 | `-v /data2` | Data2 |
@@ -239,6 +242,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **15.01.22:** - Make GUI port customisable.
 * **05.10.21:** - Rebase to alpine 3.14.
 * **12.05.21:** - Remove sysctl parameter again
 * **03.05.21:** - Raise maximum UDP buffer size.
